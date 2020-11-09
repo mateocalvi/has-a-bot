@@ -457,6 +457,11 @@ async def on_message(message):
             await message.channel.purge(limit=2)
         elif message.content.startswith('*p'):
             await message.channel.purge(limit=2)
+
+@bot.event
+async def on_ready():
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='<help'))
+        print('Estoy listo y funcionando')
   
 invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot'
 
@@ -467,11 +472,6 @@ async def invit(ctx):
 @bot.command()
 async def uwu(ctx):
     await ctx.channel.send('https://imgur.com/QzrQxzG')
-
-@bot.event
-async def on_ready():
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='<help'))
-        print('Estoy listo y funcionando')
 
 @bot.command()
 async def ping(ctx):
