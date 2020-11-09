@@ -450,13 +450,13 @@ async def on_ready():
 # async def on_message(message):
 #     ctx.send('Perdón Thorfiñn-kun, no estaba encendido T~T').message.channel(「💬」general)
 
-# @bot.event
-# async def on_message(message):
-#     if str(message.channel) != '「🎶」música':
-#         if message.content.startswith('-p'):
-#             await message.channel.purge(limit=1)
-#         elif message.content.startswith('*p'):
-#             await message.channel.purge(limit=1)
+@bot.event
+async def on_message(message):
+    if str(message.channel) != '「🎶」música':
+        if message.content.startswith('-p'):
+            await message.channel.purge(limit=2)
+        elif message.content.startswith('*p'):
+            await message.channel.purge(limit=2)
   
 invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot'
 
