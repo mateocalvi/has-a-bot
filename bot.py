@@ -535,7 +535,8 @@ async def ptgr(ctx, a1: int, b1: int):
 async def teorem_cos(ctx, a2, b2, alpha):
     h1 = (a2**2 + b2**2 - (2*a2*b2*cos(radians(alpha))))
     h2 = sqrt(h1)
-    await ctx.send(round(float(h2), 2) + "(sqrt({}))".format(h1))
+    await ctx.send(round(float(h2), 2))
+    await ctx.send(f"(sqrt({h1}))")
     
 # @bot.command()
 # async def teorem_cos(ctx, a2: int, b2: int, alpha: int):
