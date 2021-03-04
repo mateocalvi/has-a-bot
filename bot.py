@@ -537,7 +537,9 @@ async def teorem_cos(ctx, a2, b2, alpha):
     h2 = sqrt(h1)
     await ctx.send(round(float(h2), 2))
     await ctx.send(f"(sqrt({h1}))")
-    
+
+#  Pta la wea asasda
+
 # @bot.command()
 # async def teorem_cos(ctx, a2: int, b2: int, alpha: int):
 #     h2 = sqrt((a2**2 + b2**2 - (2*a2*b2*cos(radians(alpha)))))
