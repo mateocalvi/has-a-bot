@@ -1,2 +1,2 @@
 # Has-A-Bot
- Discord Bot w/ Git and Heroku integration
+ Discord Bot with Git and Heroku integration
