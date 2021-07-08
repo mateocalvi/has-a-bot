@@ -499,18 +499,18 @@ async def ping(ctx):
     # print(usuario + 'Pong! {0}ms'.format(round(bot.latency, 1)))
     await ctx.send(embed=embed)
 
-@bot.command()
-async def coms(ctx):
-    embed = discord.Embed(colour=discord.Colour.dark_purple(), title='Comandos', description='Lista de los comandos que este Bot acepta')
-    embed.set_thumbnail(url='https://icons-for-free.com/iconfiles/png/512/checkmark+clipboard+document+list+tracklist+icon-1320167911544323810.png')
-    embed.add_field(name='Comandos de música:', value=None, inline=True)
-    embed.add_field(name='<play (<p)', value='Busca una pista y la reproduce', inline=False)
-    embed.add_field(name='<stop (<st)', value='Detiene el bot y borra la cola de reproducción', inline=False)
-    embed.add_field(name='<skip (<sk)', value='Salta a la siguiente pista', inline=False)
-    embed.add_field(name='<queue (<q)', value='Muestra la cola', inline=False)
-    embed.add_field(name='<loop (<lp)', value='Repite la pista o cola actual', inline=False)
-    embed.set_footer(text='https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot')
-    await ctx.send(embed=embed)
+# @bot.command()
+# async def coms(ctx):
+#     embed = discord.Embed(colour=discord.Colour.dark_purple(), title='Comandos', description='Lista de los comandos que este Bot acepta')
+#     embed.set_thumbnail(url='https://icons-for-free.com/iconfiles/png/512/checkmark+clipboard+document+list+tracklist+icon-1320167911544323810.png')
+#     embed.add_field(name='Comandos de música:', value=None, inline=True)
+#     embed.add_field(name='<play (<p)', value='Busca una pista y la reproduce', inline=False)
+#     embed.add_field(name='<stop (<st)', value='Detiene el bot y borra la cola de reproducción', inline=False)
+#     embed.add_field(name='<skip (<sk)', value='Salta a la siguiente pista', inline=False)
+#     embed.add_field(name='<queue (<q)', value='Muestra la cola', inline=False)
+#     embed.add_field(name='<loop (<lp)', value='Repite la pista o cola actual', inline=False)
+#     embed.set_footer(text='https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot')
+#     await ctx.send(embed=embed)
 
 @bot.command()
 async def youtube(ctx, *, search):
@@ -523,8 +523,8 @@ async def youtube(ctx, *, search):
     await ctx.send('https://www.youtube.com/watch?v=' + search_results[0])
 
 @bot.command()
-async def sum(ctx, *, numbers: int):
-    await ctx.send(float(numbers) + float(numbers))
+async def sum(ctx, num1, num2):
+    await ctx.send(float(num1) + float(num2))
 
 @bot.command()
 async def summ(ctx, num1, *args):
