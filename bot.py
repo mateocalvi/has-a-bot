@@ -527,6 +527,13 @@ async def sum(ctx, *, numbers: int):
     await ctx.send(float(numbers) + float(numbers))
 
 @bot.command()
+async def summ(ctx, num1, *args):
+    total = num1
+    for num in args:
+        total = total + num
+    await ctx.send(total)
+
+@bot.command()
 async def ptgr(ctx, a1: int, b1: int):
     h1 = sqrt(a1**2 + b1**2)
     await ctx.send(round(float(h1), 2))
@@ -593,14 +600,14 @@ async def meme(ctx):
 @bot.command()
 async def ip(ctx):
     ip = get('https://api.ipify.org').text
-    await ctx.send('La IP del server (Minecraft 1.16.2) es: {}'.format(ip))
+    await ctx.send('La IP del server (Minecraft 1.16.4) es: {}'.format(ip))
 
 #######################################################################################################################################################
 
 @bot.listen()
 async def on_message(msj):
     
-    if msj.content.startswith('hasa'):
+    if msj.content.startswith('<hasa'):
         await msj.channel.send('https://imgur.com/5AjXRqE')
         await bot.process_commands(msj)
 
@@ -612,35 +619,35 @@ async def on_message(msj):
         await msj.channel.send('https://i.pinimg.com/736x/5b/df/3a/5bdf3a76808b9416b549816574111829.jpg')
         await bot.process_commands(msj)
 
-    if 'julian' in msj.content.lower():
-        await msj.channel.send('Julián? Si... alejalo de las niñas')
-        await bot.process_commands(msj)
+    # if 'julian' in msj.content.lower():
+    #     await msj.channel.send('Julián? Si... alejalo de las niñas')
+    #     await bot.process_commands(msj)
 
-    if 'avi' in msj.content.lower():
+    if msj.content.startswith('avi'):
         await msj.channel.send('**UY MAN** es ***re*** inbancable, que se calle un rato porfa')
         await bot.process_commands(msj)
 
-    if 'frank' in msj.content.lower():
+    if msj.content.startswith('frank'):
         await msj.channel.send('Kalla PUTA')
         await bot.process_commands(msj)
-    elif 'franco' in msj.content.lower():
+    elif msj.content.startswith('franco'):
         await msj.channel.send('Kalla PUTA')
         await bot.process_commands(msj)
 
-    if 'thorfin' in msj.content.lower():
+    if msj.content.startswith('thorfin'):
         await msj.channel.send('18 pajas en un día... ni más, ni menos')
         await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
         await bot.process_commands(msj)
-    elif 'cano' in msj.content.lower():
+    elif msj.content.startswith('cano'):
         await msj.channel.send('18 pajas en un día... ni más, ni menos')
         await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
         await bot.process_commands(msj)
 
-    if 'badie' in msj.content.lower():
-        await msj.channel.send('UN BUEN DEGRADÉ')
-        await bot.process_commands(msj)
+    # if 'badie' in msj.content.lower():
+    #     await msj.channel.send('UN BUEN DEGRADÉ')
+    #     await bot.process_commands(msj)
 
-    if 'nico' in msj.content.lower():
+    if msj.content.startswith('nico'):
         await msj.channel.send('A')
         await bot.process_commands(msj)
 
