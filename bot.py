@@ -454,38 +454,11 @@ async def on_ready():
 	print("My Ready is Body")
 async def status_task():
 	while True:
-		await bot.change_presence(activity=discord.Streaming(name='AntiPasta', platform='YouTube', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+		await bot.change_presence(activity=discord.Streaming(name='Get Rickrolled!', platform='YouTube', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 		await asyncio.sleep(60)
 		await bot.change_presence(activity=discord.Game("<help"))
 		await asyncio.sleep(60)
-		# await bot.change_presence(activity=discord.Game("with Krypton!"))
-		# await asyncio.sleep(60)
-		# await bot.change_presence(activity=discord.Game("with humans!"))
-		# await asyncio.sleep(60)
-# async def on_ready():
-#     # await bot.change_presence(activity=discord.Streaming(name='Tutorials', url='http://www.twitch.tv/accountname'))
-#     await bot.change_presence(activity=discord.Streaming(name='AntiPasta', platform='YouTube', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
-#     print('My Ready is Body')
 
-# @bot.event
-# async def on_ready():
-#         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='<help'))
-#         print('Estoy listo y funcionando')
-
-
-# @bot.event
-# async def on_message(message):
-#     if str(message.channel) != '「🎶」música':
-#         if message.content.startswith('-p'):
-#             await message.channel.purge(limit=2)
-#         elif message.content.startswith('*p'):
-#             await message.channel.purge(limit=2)
-
-invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot'
-
-@bot.command()
-async def invit(ctx):
-        await ctx.send(invitacion)
 
 # @bot.command()
 # async def uwu(ctx):
@@ -650,6 +623,21 @@ async def on_message(msj):
     if msj.content.startswith('nico'):
         await msj.channel.send('A')
         await bot.process_commands(msj)
+
+    if 'invitacion' in msj.content.lower():
+        await msj.channel.send(invitacion)
+        await bot.process_commands(msj)
+
+    if msj.content.startswith('sofacha'):
+        await msj.channel.send('A caso te referís a Sofía? \n **SEXOOOOOOOOOOOO**')
+    elif msj.content.startswith('sofi'):
+        await msj.channel.send('A caso te referís a la Sofacha? \n **SEXOOOOOOOOOOOO**')
+
+invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot'
+
+@bot.command()
+async def invit(ctx):
+        await ctx.send(invitacion)
 
 # @bot.listen()
 # async def on_message(msj):
