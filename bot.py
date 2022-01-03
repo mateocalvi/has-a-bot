@@ -1,5 +1,6 @@
 import token
 import discord
+from discord.embeds import Embed
 from botToken import *
 from discord.ext import commands
 from discord.utils import get
@@ -22,13 +23,15 @@ bot = commands.Bot(command_prefix='<', description='')
 
 @bot.event
 async def on_ready():
-	bot.loop.create_task(status_task())
-	print(f"Conectado como {bot.user.name}")
-	print(f"Version de Discord.py API: {discord.__version__}")
-	print(f"Version de Python: {platform.python_version()}")
-	print(f"Ejecutándose en: {platform.system()} {platform.release()} ({os.name})")
-	print("-------------------")
-	print("My Ready is Body")
+    bot.loop.create_task(status_task())
+    print(f"""Conectado como {bot.user.name}
+Version de Discord.py API: {discord.__version__}
+Version de Python: {platform.python_version()}
+Ejecutándose en: {platform.system()} {platform.release()} ({os.name})
+-------------------------------
+     Bot currently running     
+-------------------------------""")
+    
 async def status_task():
 	while True:
 		
@@ -105,10 +108,10 @@ async def teorem_cos(ctx, a2, b2, alpha):
     await ctx.send(round(float(h2), 2))
     await ctx.send(f"(sqrt({h1}))")
 
-@bot.command()
-async def teorem_cos(ctx, a2: int, b2: int, alpha: int):
-    h2 = sqrt((a2**2 + b2**2 - (2*a2*b2*cos(radians(alpha)))))
-    await ctx.send(round(float(h2), 2))
+# @bot.command()
+# async def teorem_cos(ctx, a2: int, b2: int, alpha: int):
+#     h2 = sqrt((a2**2 + b2**2 - (2*a2*b2*cos(radians(alpha)))))
+#     await ctx.send(round(float(h2), 2))
 
 # lista de memes
 listaMemes = [
@@ -146,17 +149,26 @@ async def ip(ctx):
     ip = get('https://api.ipify.org').text
     await ctx.send('La IP del server (Minecraft 1.16.4) es: {}'.format(ip))
 
+idMara = '616453961737830430'
 @bot.command()
 async def momentoPuto(ctx):
     await ctx.send('Listos para lo más gei que van a ver hasta ahora?')
-    asyncio.sleep(2)
+    # await asyncio.sleep(1.5)
     await ctx.send('Yo les avisé, que conste')
-    asyncio.sleep(2)
+    # await asyncio.sleep(1.5)
     await ctx.send('Ahí va')
-    asyncio.sleep(2)
+    # await asyncio.sleep(1.5)
     await ctx.send('#p https://www.youtube.com/watch?v=qbQHGVE4Vpo')
-    asyncio.sleep(2)
-    await ctx.send(f'Felices 3 meses @Marita#8573')
+    # await asyncio.sleep(1.5)
+    # await ctx.send(f'Felices 3 meses <@{idMara}>')
+    embed = Embed(colour=discord.Colour.from_rgb(210, 52, 235),
+                  title='Felices CUMplemes', 
+                  description='Felices 3 meses bby uwu')
+    embed.set_thumbnail(url='https://i.pinimg.com/originals/04/75/e9/0475e949924976f53f6f631dfe0189b1.png')
+    embed.set_author(name='Hasa')
+    dict = embed.to_dict()
+    print('\nEmbed message send:\n',dict)
+    await ctx.send(embed=embed)
     
 ################################################################################################################################
 
