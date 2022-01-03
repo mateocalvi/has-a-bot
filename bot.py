@@ -146,6 +146,18 @@ async def ip(ctx):
     ip = get('https://api.ipify.org').text
     await ctx.send('La IP del server (Minecraft 1.16.4) es: {}'.format(ip))
 
+@bot.command()
+async def momentoPuto(ctx):
+    await ctx.send('Listos para lo más gei que van a ver hasta ahora?')
+    asyncio.sleep(2)
+    await ctx.send('Yo les avisé, que conste')
+    asyncio.sleep(2)
+    await ctx.send('Ahí va')
+    asyncio.sleep(2)
+    await ctx.send('#p https://www.youtube.com/watch?v=qbQHGVE4Vpo')
+    asyncio.sleep(2)
+    await ctx.send(f'Felices 3 meses @Marita#8573')
+    
 ################################################################################################################################
 
 @bot.listen()
@@ -169,13 +181,6 @@ async def on_message(msj):
 
     if msj.content.startswith('avi'):
         await msj.channel.send('**UY MAN** es ***re*** inbancable, que se calle un rato porfa')
-        await bot.process_commands(msj)
-
-    if msj.content.startswith('frank'):
-        await msj.channel.send('Kalla PUTA')
-        await bot.process_commands(msj)
-    elif msj.content.startswith('franco'):
-        await msj.channel.send('Kalla PUTA')
         await bot.process_commands(msj)
 
     if msj.content.startswith('thorfin'):
