@@ -4,7 +4,7 @@ from discord.embeds import Embed
 from botToken import *
 from discord.ext import commands
 from discord.utils import get
-import asyncio, functools, itertools, random, youtube_dl, re, os, platform
+import asyncio, random, re, os, platform
 from async_timeout import timeout
 from urllib import parse, request
 from math import cos, radians, sqrt, ceil
