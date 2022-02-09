@@ -33,15 +33,16 @@ Ejecutándose en: {platform.system()} {platform.release()} ({os.name})
     
 async def status_task():
 	while True:
-		
 		await bot.change_presence(activity=discord.Streaming(name='Get Rickrolled!', 
 															platform='YouTube', 
-															url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-															))
-		
-		await asyncio.sleep(60)
+															url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+		await asyncio.sleep(15)
+		await bot.change_presence(activity=discord.Streaming(name='Alguna sugerencia? Queremos saberlo!', 
+															platform='TypeForm', 
+															url='https://eavxxv6h6fp.typeform.com/to/FMhzb5Nq'))
+		await asyncio.sleep(15)
 		await bot.change_presence(activity=discord.Game("<help"))
-		await asyncio.sleep(60)
+		await asyncio.sleep(15)
 
 
 # @bot.command()
