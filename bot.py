@@ -5,21 +5,20 @@ from botToken import *
 from discord.ext import commands
 from discord.utils import get
 import asyncio, random, re, os, platform
-from async_timeout import timeout
 from urllib import parse, request
-from math import cos, radians, sqrt, ceil
+from math import cos, radians, sqrt
 from requests import get
 
 bot = commands.Bot(command_prefix='<', description='')
 
-################################################################################################################################
-##############################################                              ####################################################
-##############################################   Orden de los atributos:    ####################################################
-##############################################   1. Eventos                 ####################################################
-##############################################   2. Comandos                ####################################################
-##############################################   3. Listen's                ####################################################
-##############################################                              ####################################################
-################################################################################################################################
+#########################################################################################################################################################
+########################################################                                  ###############################################################
+########################################################     [Orden de los atributos:]    ###############################################################
+########################################################     (1.) Eventos                 ###############################################################
+########################################################     (2.) Comandos                ###############################################################
+########################################################     (3.) Listen's                ###############################################################
+########################################################                                  ###############################################################
+#########################################################################################################################################################
 
 @bot.event
 async def on_ready():
@@ -53,13 +52,13 @@ async def status_task():
 async def ping(ctx):
     usuario = str(ctx.author)
 
-    embed = discord.Embed(colour=discord.Colour.dark_purple(), 
-                          title=usuario + ' Pong!', 
-                          description='Tardó {0} ms'.format(round(bot.latency, 1))
+    embed = discord.Embed(colour= discord.Colour.dark_purple(), 
+                          title= usuario + ' Pong!', 
+                          description= 'Tardó {0} ms'.format(round(bot.latency, 1))
                           )
 
     embed.set_thumbnail(url='https://images.emojiterra.com/google/android-nougat/512px/1f3d3.png')
-    print(usuario + f'solicoitó su ping({round(bot.latency, 1)})' + f'Pong! {round(bot.latency, 1)}ms')
+    print(usuario + f'pingueó ({round(bot.latency, 1)})')
     await ctx.send(embed=embed)
 
 # @bot.command()
@@ -97,9 +96,10 @@ async def summ(ctx, num1, *args):
     await ctx.send(total)
 
 @bot.command()
-async def ptgr(ctx, a1: int, b1: int):
-    h1 = sqrt(a1**2 + b1**2)
-    await ctx.send(round(float(h1), 2))
+async def ptgr(ctx, a: int, b: int):
+    c = a**2 + b**2
+    h = sqrt(c)
+    await ctx.send(round(float(h), 3))
 
 @bot.command()
 async def teorem_cos(ctx, a2, b2, alpha):
