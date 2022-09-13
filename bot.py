@@ -1,13 +1,18 @@
-import token
+import asyncio
+import os
+import platform
+import random
+import re
+from math import cos, radians, sqrt
+from urllib import parse, request
+
 import discord
 from discord.embeds import Embed
-from botToken import *
 from discord.ext import commands
 from discord.utils import get
-import asyncio, random, re, os, platform
-from urllib import parse, request
-from math import cos, radians, sqrt
 from requests import get
+
+from botToken import botToken
 
 bot = commands.Bot(command_prefix='<', description='')
 
@@ -36,7 +41,7 @@ async def status_task():
 		await bot.change_presence(activity=discord.Streaming(name='Get Rickrolled!', 
 															platform='YouTube', 
 															url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
-		await asyncio.sleep(15)
+		await asyncio.sleep(60)
 		await bot.change_presence(activity=discord.Streaming(name='Alguna sugerencia? Queremos saberlo!', 
 															platform='TypeForm', 
 															url='https://eavxxv6h6fp.typeform.com/to/FMhzb5Nq'))
@@ -196,31 +201,22 @@ async def on_message(msj):
         await msj.channel.send('**UY MAN** es ***re*** inbancable, que se calle un rato porfa')
         await bot.process_commands(msj)
 
-    if msj.content.startswith('thorfin'):
-        await msj.channel.send('18 pajas en un día... ni más, ni menos')
-        await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
-        await bot.process_commands(msj)
-    elif msj.content.startswith('cano'):
-        await msj.channel.send('18 pajas en un día... ni más, ni menos')
-        await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
-        await bot.process_commands(msj)
+    # if msj.content.startswith('thorfin'):
+    #     await msj.channel.send('18 pajas en un día... ni más, ni menos')
+    #     await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
+    #     await bot.process_commands(msj)
+    # elif msj.content.startswith('cano'):
+    #     await msj.channel.send('18 pajas en un día... ni más, ni menos')
+    #     await msj.channel.send('https://media1.tenor.com/images/44a6bd0c2661c1d26a5a574190c9881d/tenor.gif?itemid=18768607')
+    #     await bot.process_commands(msj)
 
     # if 'badie' in msj.content.lower():
     #     await msj.channel.send('UN BUEN DEGRADÉ')
     #     await bot.process_commands(msj)
 
-    if msj.content.startswith('nico'):
-        await msj.channel.send('A')
-        await bot.process_commands(msj)
-
     if 'invitacion' in msj.content.lower():
         await msj.channel.send(invitacion)
         await bot.process_commands(msj)
-
-    if msj.content.startswith('sofacha'):
-        await msj.channel.send('A caso te referís a Sofía? \n **SEXOOOOOOOOOOOO**')
-    elif msj.content.startswith('sofi'):
-        await msj.channel.send('A caso te referís a la Sofacha? \n **SEXOOOOOOOOOOOO**')
 
 invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696000&permissions=8&scope=bot'
 
@@ -228,5 +224,4 @@ invitacion = 'https://discord.com/api/oauth2/authorize?client_id=736328464285696
 async def invit(ctx):
         await ctx.send(invitacion)
 
-# token = 'NzU3MzAwNDAzOTkyNzg5MDcz.X2eY9g.vGVw4Yvcer2BsI9jlru4POD5CNM'
 bot.run(botToken)
